@@ -1,0 +1,74 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:600&display=swap);
+@charset "UTF-8";
+/* Base Styles */
+.footer-content{
+    position:absolute;
+    flex-direction:column;
+    justify-content:end;
+    align-items:flex-end;
+    z-index:-1;
+    height: 100%;
+    width:100%;
+    left: 0;
+    bottom: 0;
+}
+.footer{
+    z-index:1;
+    position:absolute;
+    left: 0;
+    bottom: -175%;
+    align-self:flex-end;
+    background-color: #009f41;
+    width: 100%;
+    font-family:'Quicksand', sans-serif;
+}
+.container-fluid{
+    width:100%;
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+}
+.row{
+    display:flex;
+    flex-wrap:wrap;
+    margin-right:-15px;
+    margin-left:-15px
+}
+.col-auto{
+    flex:0 0 auto;
+    width:auto;
+    max-width:100%
+}
+.nav-item{
+    display:inline;
+    margin-bottom:-1px;
+}
+.nav-link{
+    display:inline;
+    padding:.5rem 1rem;
+}
+.col-md-auto{
+    position:relative;
+    width:100%;
+    padding-right:15px;
+    padding-left:15px
+}
+.col-md{
+    flex-basis:0;
+    flex-grow:1;
+    max-width:100%
+}
+.col-12{
+    position:relative;
+    width:100%;
+    padding-right:15px;
+    padding-left:15px
+}
+.nav{display:flex;flex-wrap:wrap;padding-left:0;list-style:none}
+.align-self-center{align-self:center !important}
+.justify-content-center{justify-content:center !important}
+.text-md-left{text-align:left !important}
+.text-md-right{text-align:right !important}
+.text-center{text-align:center !important}

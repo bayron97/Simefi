@@ -1,0 +1,169 @@
+package main.servlet;
+
+import main.dao.*;
+import main.model.*;
+
+import java.io.File;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class pCompraWizardRouting
+ */
+@WebServlet("/pContratoSuministro")
+public class pContratoSuministro extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public pContratoSuministro() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 *
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String submit = request.getParameter("submit");
+		String type = request.getParameter("type");
+		String inWizard = (String) request.getAttribute("inWizard");
+		String sub = (String) request.getAttribute("submit");
+		String next = request.getParameter("next");
+		
+		System.out.println("valor " + submit);
+
+		String id = request.getParameter("id");
+
+		// Variable temporal para type
+		String t = "none";
+
+		if (submit == null && sub != null) {
+			submit = sub;
+		}
+
+		HttpSession session = request.getSession(true);
+		String sessionType = (String) session.getAttribute("type");
+
+		if (inWizard == null || inWizard.isEmpty()) {
+			if (type != null && !type.isEmpty()) {
+				t = type;
+			}
+		} else {
+			if (sessionType != null && !sessionType.isEmpty()) {
+				t = sessionType;
+			}
+		}
+
+		String read = "readOnly";
+		String disable = "disabled";
+		if (submit != null && (submit.contentEquals("nuevo") || submit.contentEquals("modificar"))) {
+			read = "";
+			disable = "";
+		}
+		int cod;
+
+		switch (submit) {
+			case "nuevo":
+				cod = -1;
+				next = "nContratoSuministroALP.jsp";
+				request.setAttribute("Id", cod);
+				session.setAttribute("procesocompra", 0);
+				session.setAttribute("type", t);
+				session.setAttribute("funcion", "nuevo");
+				session.setAttribute("read", read);
+				session.setAttribute("disable", disable);
+				session.setAttribute("ogFunc", "nuevo");
+				request.setAttribute("observaciones", "");
+
+				break;
+			case "modificar":
+				if (id == null) {
+					int i = (Integer) request.getAttribute("id");
+					id = String.valueOf(i);
+				}
+				if (id != null && !id.isEmpty()) {
+					cod = Integer.parseInt(id);
+					next = "nContratoSuministroALP.jsp";
+
+					contratoSuministro p = contratoSuministroDao.getById(Integer.parseInt(id));
+
+					request.setAttribute("Id", p.getId());
+					session.setAttribute("procesocompra", p.getBuyProcessId());
+					request.setAttribute("ordencompra", p.getBuyOrderId());
+					request.setAttribute("procesocompracod", p.getBuyProcessCod());
+					request.setAttribute("proveedor", p.getDistribuidor());
+					request.setAttribute("fechasuscripcion", p.getFecha());
+					request.setAttribute("myfile", p.getDocumentName());
+					request.setAttribute("observaciones", p.getObservaciones());
+					System.out.println("docu" + p.getDocumentName());
+
+					session.setAttribute("type", t);
+					session.setAttribute("noCompra", cod);
+					session.setAttribute("funcion", "modificar");
+					session.setAttribute("ogFunc", "modificar");
+					session.setAttribute("read", read);
+					session.setAttribute("disable", disable);
+				}
+				break;
+			case "consultar":
+
+				if (id != null && !id.isEmpty()) {
+					cod = Integer.parseInt(id);
+					next = "nContratoSuministroALP.jsp";
+
+					contratoSuministro p = contratoSuministroDao.getById(Integer.parseInt(id));
+
+					request.setAttribute("Id", p.getId());
+					session.setAttribute("procesocompra", p.getBuyProcessId());
+					request.setAttribute("ordencompra", p.getBuyOrderId());
+					request.setAttribute("procesocompracod", p.getBuyProcessCod());
+					request.setAttribute("proveedor", p.getDistribuidor());
+					request.setAttribute("fechasuscripcion", p.getFecha());
+					request.setAttribute("myfile", p.getDocumentName());
+					request.setAttribute("observaciones", p.getObservaciones());
+
+					session.setAttribute("type", t);
+					session.setAttribute("noCompra", cod);
+					session.setAttribute("funcion", "consultar");
+					session.setAttribute("ogFunc", "consultar");
+					session.setAttribute("read", read);
+					session.setAttribute("disable", disable);
+				}
+				break;
+				
+			case "salir":
+				
+				request.setAttribute("throughServlet", "true");
+				next = "contratoSuministroALP.jsp";
+				
+				break;
+			default:
+				break;
+		}
+
+		request.setAttribute("throughServlet", "true");
+		request.getRequestDispatcher(next).forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 *
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

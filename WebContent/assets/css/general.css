@@ -1,0 +1,144 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:600&display=swap);
+
+/* Base Styles */
+input:not([type="password"]) {
+  text-transform: uppercase;
+}
+input:read-only {
+  cursor: not-allowed;
+}
+input:-moz-read-only {
+  cursor: not-allowed;
+}
+textarea:read-only {
+  cursor: not-allowed;
+}
+textarea:-moz-read-only {
+  cursor: not-allowed;
+}
+textarea {
+  text-transform: uppercase;
+}
+.body-general-styles {
+  background: url(../../BAC.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.logoCharge {
+  width: 40%;
+}
+
+/*Font Styles starts*/
+.main-font {
+  font-family: "Quicksand", sans-serif;
+}
+/*Font Styles ends*/
+
+/* User Options Styles */
+.userOptionsTitle {
+  position: absolute;
+  top: 30px;
+  right: 110px;
+  font-family: "Quicksand", sans-serif;
+}
+.userOptionsImageContainer {
+  height: 100px;
+  margin-bottom: 0px;
+}
+.userImage {
+  top: 0;
+  max-width: 80px;
+  height: auto;
+}
+.userOptions {
+  display: none;
+  z-index: 3;
+  margin-top: -20px;
+  position: absolute;
+  margin-left: 85%;
+}
+.userBtn {
+  background: #f68121;
+  border: 1px solid #af3a00;
+  font-family: "Quicksand", sans-serif;
+  color: white;
+  width: 140px;
+  height: 30px;
+}
+/* User Options Styles Ends*/
+
+/*Main Content Styles*/
+.main-content-div {
+  background: url(../../BAC.png) no-repeat center center fixed !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.fullscreen-background{
+  background: url(../../BAC.png) center center;
+  background-size: cover;
+}
+/*Main Content ends*/
+
+/*Titles Styles starts*/
+.large-title {
+  color: #f08c3f;
+  font-family: "Quicksand", sans-serif;
+}
+/*Titles Styles ends*/
+
+/*Table Aditional Styles*/
+.table-aditional-styles {
+  border-spacing: 2px;
+  border-style: solid;
+  border-color: #111;
+  border-width: 1px;
+  border-radius: 1em 0em 1em 0em;
+  border-collapse: separate;
+}
+table thead tr th {
+  background-color: #ed7d31;
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 11.5;
+}
+table tbody tr:nth-child(odd) {
+  background-color: #f1f1f1;
+  font-size: 11.5;
+}
+table tbody tr:nth-child(even) {
+  background-color: #fff;
+  font-size: 11.5;
+}
+.selected {
+  color: #938274 !important;
+}
+/*Table Aditional Styles ends*/
+
+/*State section aditional styles*/
+.state-section-aditional-styles {
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 20px;
+}
+.hide {
+  visibility: collapse;
+  display: none !important;
+}
+/*State section aditional styles ends*/
+
+/*Section aditional Styles*/
+.section-aditional-styles {
+  border: 2px solid black;
+  border-radius: 1em 0em 1em 0em;
+}
+.normal-border
+{
+  border: 2px solid black;
+  border-radius: 1em 1em 1em 1em;
+}
+/*Section aditional Styles ends*/

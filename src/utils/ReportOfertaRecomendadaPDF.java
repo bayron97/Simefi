@@ -1,0 +1,44 @@
+package utils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+import org.apache.commons.io.FileUtils;
+import org.jsoup.Connection.Response;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+
+import com.itextpdf.html2pdf.ConverterProperties;
+import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.kernel.geom.PageSize;
+
+public class ReportOfertaRecomendadaPDF{
+	
+	public static void OfertaRecomendadaCreatePDF(String baseUrlHost, String assetsRealPath, String newFilePath, String proc, String token) throws IOException {
+		// IO & Web
+		
+        Response response = Jsoup.connect("http://" + baseUrlHost + "/RecommendedOffersALPReport?proc=" + proc + "&token=" + token).userAgent("Mozilla/5.0").timeout(100000).ignoreHttpErrors(true).execute();
+        Document document = response.parse();
+        System.out.print(response);
+        File htmlSource = new File(assetsRealPath + "/temp"+ Math.random()*10000 +".html");
+        System.out.print( htmlSource + "Entro al pdf");
+        FileUtils.writeStringToFile(htmlSource, document.outerHtml(), StandardCharsets.UTF_8);
+        
+        PdfWriter writer = new PdfWriter(newFilePath);
+        PdfDocument pdfDoc = new PdfDocument(writer);
+        pdfDoc.setDefaultPageSize(PageSize.LEGAL.rotate());
+        
+        //pdfHTML specific code
+        ConverterProperties converterProperties = new ConverterProperties();
+        converterProperties.setBaseUri(htmlSource.getParent());
+        HtmlConverter.convertToPdf(new FileInputStream(htmlSource), pdfDoc, converterProperties);
+        
+        //Delete Temp File
+        htmlSource.delete();
+	}
+}

@@ -1,0 +1,208 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:600&display=swap);
+
+/* Base Styles */
+.next-navbar,
+.next-navbar ul,
+.next-navbar li,
+.next-navbar a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+  position: relative;
+}
+.next-navbar {
+  background: url(../img/BAC_LOGIN.png);
+  background-size: cover;
+}
+.header {
+  background: url(../img/BAC_LOGIN.png);
+}
+.btn_sn {
+  font-family: "Quicksand", sans-serif;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  display: block;
+  background: #c96a22;
+  border: none;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 40px;
+}
+.activePag {
+  background: #f78f3a;
+}
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .next-navbar {
+    padding-top: 15px;
+  }
+  .next-navbar > ul > li > ul > li > button {
+    font-size: 18px;
+  }
+}
+.next-navbar a {
+  line-height: 1.3;
+}
+/*.next-navbar > ul > li:first-child {
+  background: #66665e;
+  background: -moz-linear-gradient(#66665e 0%, #45463d 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #66665e), color-stop(100%, #45463d));
+  background: -webkit-linear-gradient(#66665e 0%, #45463d 100%);
+  background: linear-gradient(#66665e 0%, #45463d 100%);
+  border: 1px solid #45463d;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}*/
+.next-navbar > ul > li:first-child > a {
+  padding: 15px 10px;
+  background: url(../img/pattern.png) top left repeat;
+  border: none;
+  border-top: 1px solid #818176;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+}
+.next-navbar > ul > li:first-child > a > span {
+  padding: 0;
+  text-align: center;
+}
+/*.next-navbar > ul > li:first-child:hover {
+  background: #66665e;
+  background: -moz-linear-gradient(#66665e 0%, #45463d 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #66665e), color-stop(100%, #45463d));
+  background: -webkit-linear-gradient(#66665e 0%, #45463d 100%);
+  background: linear-gradient(#66665e 0%, #45463d 100%);
+}*/
+.next-navbar > ul > li {
+  background: #f68121;
+  background: -moz-linear-gradient(#f68121 0%, #d16e1c 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #f68121),
+    color-stop(100%, #d16e1c)
+  );
+  background: -webkit-linear-gradient(#f68121 0%, #d16e1c 100%);
+  background: linear-gradient(#f68121 0%, #d16e1c 100%);
+}
+.next-navbar > ul > li:hover {
+  background: #d16e1c;
+  background: -moz-linear-gradient(#d16e1c 0%, #f68121 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #d16e1c),
+    color-stop(100%, #f68121)
+  );
+  background: -webkit-linear-gradient(#d16e1c 0%, #f68121 100%);
+  background: linear-gradient(#d16e1c 0%, #f68121 100%);
+}
+.next-navbar > ul > li > a {
+  font-size: 14px;
+  display: block;
+  background: url(../img/pattern.png) top left repeat;
+  color: #ffffff;
+  border: 1px solid #ba2f14;
+  border-top: none;
+  text-shadow: 0 -1px 1px #751d0c;
+}
+.next-navbar > ul > li > a > span {
+  display: block;
+  padding: 12px 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.next-navbar > ul > li > a:hover {
+  text-decoration: none;
+}
+.next-navbar > ul > li.active {
+  border-bottom: none;
+}
+.next-navbar > ul > li > a span {
+  background: url(../img/icon_plus.png) 96% center no-repeat;
+}
+.next-navbar > ul > li.active > a span {
+  background: url(../img/icon_minus.png) 96% center no-repeat;
+}
+.next-navbar > ul > li.no-icon > a span {
+  background: url();
+}
+
+/* Sub menu */
+.next-navbar ul ul {
+  display: none;
+  background: #fff;
+  border-right: 1px solid #a2a194;
+  border-left: 1px solid #a2a194;
+}
+.next-navbar ul ul li {
+  padding: 0;
+  border-bottom: 1px solid #d4d4d4;
+  border-top: none;
+  background: #f7f7f7;
+  background: -moz-linear-gradient(#f7f7f7 0%, #ececec 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #f7f7f7),
+    color-stop(100%, #ececec)
+  );
+  background: -webkit-linear-gradient(#f7f7f7 0%, #ececec 100%);
+  background: linear-gradient(#f7f7f7 0%, #ececec 100%);
+}
+.next-navbar ul ul li:last-child {
+  border-bottom: none;
+}
+.next-navbar ul ul a {
+  padding: 10px 10px 10px 25px;
+  display: block;
+  color: #676767;
+  font-size: 12px;
+  font-weight: normal;
+}
+.next-navbar ul ul a:before {
+  content: "*";
+  position: absolute;
+  left: 10px;
+  color: #e94f31;
+}
+.next-navbar ul ul a:hover {
+  color: #e94f31;
+}
+
+/*Other*/
+
+.logoBlanco {
+  height: auto;
+  max-width: 90%;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+/*Hide Scrollbar*/
+::-webkit-scrollbar {
+  display: none;
+}
